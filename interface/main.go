@@ -3,12 +3,23 @@ package main
 import "fmt"
 
 
+type Shape interface {
+	Area() float64
+	Perimeter() float64
+}
+
+
 func main() {
 
 	c := Circle{Radius: 5}
 
 	fmt.Println("Original Circle:")
 	PrintShapeProperties(c)
+
+	r := Rectangle{Width: 2, Height: 2}
+
+	fmt.Println("Original Rectangle:")
+	PrintShapeProperties(r)
 }
 
 type Circle struct {
@@ -36,7 +47,7 @@ func (c Circle) Perimeter() float64 {
 	return  2 * 3.14 * c.Radius 
 }
 
-func PrintShapeProperties(c Circle){ 
-	fmt.Printf("Area: %f\n", c.Area())
-	fmt.Printf("Perimeter: %f\n", c.Perimeter())
+func PrintShapeProperties(s Shape){ 
+	fmt.Printf("Area: %f\n", s.Area())
+	fmt.Printf("Perimeter: %f\n", s.Perimeter())
 }
