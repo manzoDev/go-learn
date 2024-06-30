@@ -19,7 +19,7 @@ func main() {
 		return c.String(http.StatusOK, "¡PONG!")
 	})
 
-	e.GET("user/:id", getUser)
+	e.GET("/user/:id", getUser)
 
 	e.Logger.Fatal(e.Start(":9999"))
 }
